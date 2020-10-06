@@ -106,10 +106,12 @@
 }
 .form_results
 {
-    font-family: initial;
+    font-family: "montserrat";
+    font-size: 1.5rem;
     color: #FFFFFF;
     /* margin-bottom: 16px; */
     margin: 5px auto;
+    
 
 }
 .form_results_rentabilidad
