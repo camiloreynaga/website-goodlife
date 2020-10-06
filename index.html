@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/new.css">
 
     <!-- script
     ================================================== -->
@@ -101,21 +102,92 @@
         <div class="home-content">
 
             <div class="row home-content__main">
+                <div class="col-seven tab-full">
 
-                <h3>BIENVENIDOS</h3>
-                <h1> Una forma sencilla <br>
-					y segura de invertir <br>
-					en bienes raíces<br>
-                </h1>
-                <div class="home-content__buttons">
-                    <a href="#pricing" class="smoothscroll btn btn--stroke">
-                        SELECCIONAR PLAN
-                    </a>
-                    <a href="http://bit.ly/whatsappGLpe"  class="btn btn--stroke">
-                        <span class="fa fa-whatsapp" aria-hidden="true"></span> Contáctanos
-                    </a>
                     
+                    <h3>BIENVENIDOS</h3>
+                    <h1> Una forma sencilla <br>
+                        y segura de invertir <br>
+                        en bienes raíces<br>
+                    </h1>
+                    <div class="home-content__buttons">
+                        <a href="#pricing" class="smoothscroll btn btn--stroke">
+                            SELECCIONAR PLAN
+                        </a>
+                        <a href="http://bit.ly/whatsappGLpe"  class="btn btn--stroke">
+                            <span class="fa fa-whatsapp" aria-hidden="true"></span> Contáctanos
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-five tab-full">
+
+                    <div class="simulation">
+                        <form action="" method="post">
+                            <div class="subhead form_title text-center">Calcula tu ganancia</div>
+                            <!-- <h2 class="form_title text-center">Calcula tu ganancia</h2> -->
+                            <legend class="form_question text-center">¿Cuánto quieres invertir?</legend>
+                            <legend id="capital" class="form_range-value text-center">5,000 </legend>
+                            <div class="form-group">
+                                <div class="slidecontainer">
+
+                                    <input type="range" min="1000" max="100000" step="1000" class="slider" id="capital_range">
+                                    <span class="form_range-min-max float-left">1,000</span>
+                                    <span class="form_range-min-max float-right">100,000</span>
+                                </div>
+                            </div>
+                            <legend class="form_question text-center">¿Por cuánto tiempo?</legend>
+                            
+                            <legend id="time" class="form_range-value text-center">12 meses</legend>
+                            <div class="form-group">
+
+                                <input type="range" min="6" max="24" step="6" list="monthmarks" class="slider" id="time_range">
+                                
+                                <datalist id="monthmarks">
+                                    <option value="6" label="6 meses"> 
+                                    <option value="12" label="12 meses"> 
+                                    <option value="24" label="24 meses"> 
+
+                                </datalist>
+
+                                <span class="form_range-min-max float-left">6 meses</span>
+                                <span class="form_range-min-max float-right">24 meses</span>
+                            </div>
+                            <br>
+                            <div class="form-group">
+
+                                
+                                <a id="btn-calcular" class="btn btn--primary " href="#">Calcular</a>
+
+                            </div>
+                            <div class="align-items-center">
+                                
+                                <div class="form_results">
+                                    <span>Monto de inversión:</span>
+                                    <span>
+                                        S/. 15,000.00
+                                    </span> 
+
+                                </div>
+                                <div class="form_results">
+                                    <span> Tu pago mensual:</span>
+                                    <span>
+                                        S/. 349.50
+                                    </span>
+                                </div>
+                                <div class="form_results">
+                                    <span> Rentabilidad total:</span>
+                                    <span class="form_results_rentabilidad">
+                                        12 %
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     
+    
+    
                 </div>
 
             </div>
@@ -911,3 +983,36 @@ Calle Jose Bazzochi 337 Int. 2, La Victoria. RUC 20603616261</span>
 </body>
 
 </html>
+
+<script>
+const capital_slider = document.getElementById("capital_range");
+const capital_output = document.getElementById("capital");
+
+
+capital_output.innerHTML = new Intl.NumberFormat(
+         'es-PE', { 
+             style: 'currency', currency: 'PEN' 
+            }
+        ).format(capital_slider.value); // Display the default capital_slider value
+
+// Update the current capital_slider value (each time you drag the capital_slider handle)
+capital_slider.oninput = function() {
+     capital_output.innerHTML = new Intl.NumberFormat(
+         'es-PE', { 
+             style: 'currency', currency: 'PEN' 
+            }
+        ).format(this.value)
+}
+
+const time_slider = document.getElementById("time_range");
+const time_output = document.getElementById("time");
+
+time_output.innerHTML = time_slider.value +' meses';
+
+time_slider.oninput = function(){
+    time_output.innerHTML = this.value +' meses';
+}
+
+
+
+</script>
