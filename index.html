@@ -142,43 +142,38 @@
                             <legend id="time" class="form_range-value text-center">12 meses</legend>
                             <div class="form-group">
 
-                                <input type="range" min="6" max="24" step="6" list="monthmarks" class="slider" id="time_range">
+                                <input type="range" min="6" max="24" step="6"  class="slider" id="time_range">
                                 
-                                <datalist id="monthmarks">
-                                    <option value="6" label="6 meses"> 
-                                    <option value="12" label="12 meses"> 
-                                    <option value="24" label="24 meses"> 
-
-                                </datalist>
+                          
 
                                 <span class="form_range-min-max float-left">6 meses</span>
                                 <span class="form_range-min-max float-right">24 meses</span>
                             </div>
                             <br>
-                            <div class="form-group">
+                            <div class="form-group text-center">
 
                                 
-                                <a id="btn-calcular" class="btn btn--primary " href="#">Calcular</a>
+                                <a id="btn-calcular" class="btn btn--primary smoothscroll" href="#pricing">Calcular</a>
 
                             </div>
                             <div class="align-items-center">
                                 
                                 <div class="form_results">
                                     <span>Monto de inversión:</span>
-                                    <span>
-                                        S/. 15,000.00
+                                    <span id="inversion_output"> 
+                                        S/ 51,000.00
                                     </span> 
 
                                 </div>
                                 <div class="form_results">
                                     <span> Tu pago mensual:</span>
-                                    <span>
-                                        S/. 349.50
+                                    <span id="month_paid">
+                                        S/ 1188.30
                                     </span>
                                 </div>
                                 <div class="form_results">
                                     <span> Rentabilidad total:</span>
-                                    <span class="form_results_rentabilidad">
+                                    <span id="rentabilidad_percentage" class="form_results_rentabilidad">
                                         12 %
                                     </span>
                                 </div>
@@ -985,34 +980,86 @@ Calle Jose Bazzochi 337 Int. 2, La Victoria. RUC 20603616261</span>
 </html>
 
 <script>
+
 const capital_slider = document.getElementById("capital_range");
 const capital_output = document.getElementById("capital");
-
-
-capital_output.innerHTML = new Intl.NumberFormat(
-         'es-PE', { 
-             style: 'currency', currency: 'PEN' 
-            }
-        ).format(capital_slider.value); // Display the default capital_slider value
-
-// Update the current capital_slider value (each time you drag the capital_slider handle)
-capital_slider.oninput = function() {
-     capital_output.innerHTML = new Intl.NumberFormat(
-         'es-PE', { 
-             style: 'currency', currency: 'PEN' 
-            }
-        ).format(this.value)
-}
 
 const time_slider = document.getElementById("time_range");
 const time_output = document.getElementById("time");
 
-time_output.innerHTML = time_slider.value +' meses';
+let capital = capital_slider.value; 
 
-time_slider.oninput = function(){
-    time_output.innerHTML = this.value +' meses';
+document.onload = calcMonthPaid();
+ // Display the default capital_slider value
+inversion_output.innerHTML = capital_output.innerHTML = formatoSoles(capital);; 
+//Display defaulta time (moths) value
+time_output.innerHTML = formatoMeses(time_slider.value);
+
+// Update the current capital_slider value (each time you drag the capital_slider handle)
+capital_slider.oninput = function() {
+    let _capital =this.value;
+    inversion_output.innerHTML = capital_output.innerHTML = formatoSoles(_capital);
+    calcMonthPaid()
+    // console.log(8);
 }
 
+time_slider.oninput
+// time calculation
+time_slider.oninput = function(){
+    let _time = this.value;
+    time_output.innerHTML =  formatoMeses(_time);
+    calcMonthPaid()
+}
+//convert to PEN
+function formatoSoles(monto){
+    return new Intl.NumberFormat(
+         'es-PE', { 
+             style: 'currency', currency: 'PEN' 
+            }
+        ).format(monto);
+}
+
+// foramt to months
+function formatoMeses(tiempo){
+    return tiempo + " meses";
+}
+
+// Calc profit - calculos de rentabilidad 
+
+function calcMonthPaid()
+{
+    const capital = document.getElementById("capital_range").value;
+    const time  = document.getElementById("time_range").value;
+    const month_paid = document.getElementById("month_paid");
+    const rentabilidad = document.getElementById("rentabilidad_percentage");
+    let r =0.02; 
+    let pago = r * capital;
+    let percentage = '12 %';
+    switch (time) {
+        case "6":
+            percentage='12 %'
+            r= 0.0200
+            break;
+        case "12":
+            percentage='28 %'
+            r= 0.0233
+            break;
+        case "18":
+            percentage='42 %'    
+            r= 0.0233
+            break;
+        case "24":
+            percentage='60 %'
+            r= 0.0250
+            break;
+    
+        default:
+            break;
+    }
+    pago = r * capital;
+    month_paid.innerHTML = formatoSoles(pago);
+    rentabilidad.innerHTML = percentage;
+}
 
 
 </script>
