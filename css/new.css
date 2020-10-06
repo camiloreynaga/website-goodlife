@@ -1,5 +1,6 @@
 
 .simulation{
+    margin-top: 1em;
     font-family: "montserrat-bold", sans-serif;
     /* background-color: white; */
     min-width: 290px;
@@ -9,7 +10,7 @@
     padding: 15px;
 }
 .simulation .form_title {
-    /* margin: 1rem; */
+    
     padding: 1rem;
     font-size: 1.5rem;
     /* margin-top:10px;
@@ -87,6 +88,7 @@
 
 
 .btn-invertir{
+    margin-top: .5em;
     background-color: #Eb4909;
     width: 100%;
     max-width: 310px;
