@@ -98,10 +98,18 @@
     color: #FFFFFF;
     font-size: 1.25rem; 
 }
+.simulation-line
+{
+    margin: 0 auto 5px;
+    /* margin-bottom: 2px; */
+    border-color: white;
+}
 .form_results
 {
+    font-family: initial;
     color: #FFFFFF;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
+    margin: 5px auto;
 
 }
 .form_results_rentabilidad
