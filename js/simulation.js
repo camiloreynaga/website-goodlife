@@ -1,33 +1,90 @@
+// Capital range slider
 
 const capital_slider = document.getElementById("capital_range");
 const capital_output = document.getElementById("capital");
 
+// Time range slider
 const time_slider = document.getElementById("time_range");
 const time_output = document.getElementById("time");
 
+// initial values
 let capital = capital_slider.value; 
 
+// paint range
+
+let valorIncrementoCapital = 1000; // step
+let paintValue_capital = (capital / valorIncrementoCapital); 
+let paintValue_time = 65; // initial value
+let color = '#39b54a';
+
+// exec to initial load
 document.onload = calcMonthPaid();
- // Display the default capital_slider value
+
+// Display the default capital_slider value
 inversion_output.innerHTML = capital_output.innerHTML = formatoSoles(capital);; 
+
 //Display defaulta time (moths) value
 time_output.innerHTML = formatoMeses(time_slider.value);
+
+capital_slider.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue_capital}%, #fff  ${paintValue_capital}%, white 100%)`
+time_slider.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue_time}%, #fff  ${paintValue_time}%, white 100%)`
+   
+
 
 // Update the current capital_slider value (each time you drag the capital_slider handle)
 capital_slider.oninput = function() {
     let _capital =this.value;
+
+    let valorIncremento = 1000; // step
+    let paintValue = (_capital / valorIncremento); 
+    let color = '#39b54a';
+
+    this.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue}%, #fff  ${paintValue}%, white 100%)`
+
     inversion_output.innerHTML = capital_output.innerHTML = formatoSoles(_capital);
+    
     calcMonthPaid()
     // console.log(8);
 }
 
-time_slider.oninput
 // time calculation
 time_slider.oninput = function(){
     let _time = this.value;
+    let paintValue = timePercentage(this.value); 
+    let color = '#39b54a';
+    this.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue}%, #fff  ${paintValue}%, white 100%)`
+
     time_output.innerHTML =  formatoMeses(_time);
     calcMonthPaid()
 }
+// percentage to time range
+function timePercentage(time)
+    {
+        let _percentage = 1;
+        switch(time)
+        {
+            case "6":
+                _percentage=1
+            break;
+            case "12":
+                _percentage=35
+            break;
+            case "18":
+                _percentage=65
+            break;
+            case "24":
+                _percentage=100
+            break;
+
+            default:
+                _percentage=1
+            break;
+        }
+        return _percentage;
+
+    }
+
+
 //convert to PEN
 function formatoSoles(monto){
     return new Intl.NumberFormat(
