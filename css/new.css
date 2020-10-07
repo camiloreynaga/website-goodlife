@@ -127,3 +127,46 @@
 {
     color: #39b54a;
 }
+
+/* tabla de detalle - cronograma */
+.table-responsive
+{
+    max-height: 600px;
+}
+thead th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
+  }
+  tbody th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    left: 0;
+  }
+  
+thead th:first-child {
+    left: 0;
+    z-index: 2;
+  }
+
+  thead th {
+    background: #d4d4d4;
+    /* color: #FFF; */
+    /* Ensure this stays above the emulated border right in tbody th {}: */
+    z-index: 1;
+  }
+  tbody th {
+    background: #FFF;
+    border-right: 1px solid #CCC;
+    /* Browsers tend to drop borders on sticky elements, so we emulate the border-right using a box-shadow to ensure it stays: */
+    box-shadow: 1px 0 0 0 #ccc;
+  }
+  tbody tr td, th{
+      text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+  }
+
+  tr:nth-child(even) 
+  td { background: #f0eded; }
