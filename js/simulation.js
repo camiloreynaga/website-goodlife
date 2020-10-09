@@ -123,11 +123,11 @@ function calcMonthPaid()
             break;
         case "12":
             percentage='28 %'
-            r= 0.0233 //2.3%
+            r= 0.02333 //2.3%
             break;
         case "18":
             percentage='42 %'    
-            r= 0.0233 //2.3%
+            r= 0.02333 //2.3%
             break;
         case "24":
             percentage='60 %'
@@ -140,30 +140,96 @@ function calcMonthPaid()
     pago = r * capital;
     month_paid.innerHTML = formatoSoles(pago);
     rentabilidad.innerHTML = percentage;
+    
 }
-
 function generarTabla(nroMeses){
     let title_table = document.getElementById("titulo_tabla");
     let table_body = document.getElementById('table_body');
+    let _rentabilidad_total =  document.getElementById("rentabilidad_percentage").textContent;
+    let percentage = RentabilidadMensual(_rentabilidad_total,time_slider.value);
+    const month_paid = document.getElementById("month_paid")
+    let interes = month_paid.textContent;
+
+    let fecha = FechasPago();
+
     table_body.innerHTML="";
     for (let i = 0; i < nroMeses; i++) {
 
         let mes = i+1;
-        let percentage = '6%';
-        let interes = 1188.30
-        let fecha = '07/11/2020'
+        
+        
 
         let fila = document.createElement("tr");
         
         fila.appendChild(crearCell(mes))
         fila.appendChild(crearCell(percentage))
         fila.appendChild(crearCell(interes))
-        fila.appendChild(crearCell(fecha))
+        fila.appendChild(crearCell(fecha[i]))
 
         table_body.appendChild(fila);
     }
     title_table.innerHTML = 'Por '+ formatoMeses(nroMeses) ;
-}    
+}  
+
+function FechasPago()
+{
+    const tiempo  = document.getElementById("time_range").value;
+    let fecha_actual = new Date();
+    let dia = fecha_actual.getDate();
+    let mes = fecha_actual.getMonth()+1;
+    let anio = fecha_actual.getFullYear();
+
+    let data = [];
+
+    for (let i = 0; i < tiempo; i++) {
+        let diaImprimir
+        let mesImprimir
+        
+        if(mes<12){
+            dia= fecha_actual.getDate();
+            mes +=1;
+
+            if(dia==31){
+                dia=1
+            }
+            if(dia >=29 && mes ==2){
+                dia =28
+            }
+            
+        }else{
+            mes=1
+            anio+=1
+        }
+
+        if(dia<10){
+            diaImprimir= '0'+dia;
+        }else{
+            diaImprimir=dia;
+        }
+
+        if(mes<10){
+            mesImprimir = '0'+mes;
+        }else{
+            mesImprimir=mes;
+        }
+
+
+        data[i]= `${diaImprimir}/${mesImprimir}/${anio}` 
+       
+    }
+    return data;
+
+    //if(dia>30)
+}
+
+function RentabilidadMensual(texto,tiempo){
+    texto =  texto.substring(0,2)
+    let porcentaje = texto/tiempo;
+
+    return porcentaje.toFixed(3); // 3 decimales
+
+    
+}
     
 
 function crearCell( val){
