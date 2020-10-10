@@ -572,6 +572,70 @@ beneficios.
                 <p data-aos="fade-up">Determina por cuánto tiempo invertirás con nosotros y asegura la rentabilidad que
                     más se adapte a tus necesidades desde el comienzo.  <br>
                 </p>
+
+                <div class="simulation">
+                    <form action="" method="post">
+                        <div class="subhead form_title text-center">Calcula tu ganancia</div>
+                        <!-- <h2 class="form_title text-center">Calcula tu ganancia</h2> -->
+                        <legend class="form_question text-center">¿Cuánto quieres invertir?</legend>
+                        <legend id="capital" class="form_range-value text-center">5,000 </legend>
+                        <div class="form-group">
+                            <div class="slidecontainer">
+
+                                <input type="range" min="1000" max="100000" step="1000" class="slider" id="capital_range2">
+                                <span class="form_range-min-max float-left">1,000</span>
+                                <span class="form_range-min-max float-right">100,000</span>
+                            </div>
+                        </div>
+                        <legend class="form_question text-center">¿Por cuánto tiempo?</legend>
+                        
+                        <legend id="time" class="form_range-value text-center">12 meses</legend>
+                        <div class="form-group">
+                            <div class="slidecontainer">
+                                <input type="range" min="6" max="24" step="6"  class="slider" id="time_range">
+                                <span class="form_range-min-max float-left">6 meses</span>
+                                <span class="form_range-min-max float-right">24 meses</span>
+                            </div>
+                        </div>
+                        
+                        <!-- <div > -->
+                            <br>
+                            <hr class="simulation-line">
+                            <div class="form_results">
+                                <span class="float-left">Monto de inversión:</span>
+                                <span id="inversion_output" class="float-right"> 
+                                    S/ 51,000.00
+                                </span> 
+
+                            </div>
+                            <hr class="simulation-line">
+                            <div class="form_results">
+                                <span class="float-left"> Tu pago mensual:</span>
+                                <span id="month_paid" class="float-right">
+                                    S/ 1188.30
+                                </span>
+                            </div>
+                            <hr class="simulation-line">
+                            <div class="form_results">
+                                <span class="float-left"> Rentabilidad total:</span>
+                                <span id="rentabilidad_percentage" class="form_results_rentabilidad float-right">
+                                    12 %
+                                </span>
+                            </div>
+                        <!-- </div> -->
+                           
+                        
+                        <!-- btn ver detalles -->
+                        <div class="clear-fix"></div>
+                        <br>
+                        <div class="form-group text-center ">
+
+                            
+                            
+                            <a id="btn-calcular" class="btn btn--primary smoothscroll" href="#pricing">Ver detalles</a>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="col-eight pricing-table">
@@ -603,7 +667,7 @@ beneficios.
                             
                             <div class="plan-top-part">
                                 <!-- <p class="plan-block-price">60<sup>%</sup></p> -->
-                                <p id="titulo_tabla" class="plan-block-per">Por 24 meses
+                                <p id="titulo_tabla" class="plan-block-per">Por 18 meses
 
                                 </p>
                                 <!-- <a class="smoothscroll btn btn--stroke" href="">SELECCIONAR PLAN</a> -->
