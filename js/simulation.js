@@ -1,203 +1,209 @@
-// ****** Range Slider
 
-// Capital range slider
-const capital_slider = document.getElementById("capital_range") 
-const capital_output = document.getElementById("capital");
-// Time range slider
-const time_slider = document.getElementById("time_range");
-const time_output = document.getElementById("time");
-// initial values
-let capital = capital_slider.value; 
-// paint range
-let valorIncrementoCapital = 1000; // step
-let paintValue_capital = (capital / valorIncrementoCapital); 
-let paintValue_time = 65; // initial value
-let color = '#39b54a';
-
-//table
-
-//titulo
-let title_table = document.getElementById("titulo_tabla");
-//cuerpo
-let table_body = document.getElementById('table_body');
-// % total  (rentabilidad)
-let _rentabilidad_total =  document.getElementById("rentabilidad_percentage").textContent;
-// ****endTable
-
-/** Valores iniciales */
-
-// Display the default capital_slider value
-inversion_output.innerHTML = capital_output.innerHTML = formatoSoles(capital);; 
-
-//Display default time (moths) value
-time_output.innerHTML = formatoMeses(time_slider.value);
-
-capital_slider.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue_capital}%, #fff  ${paintValue_capital}%, white 100%)`
-time_slider.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue_time}%, #fff  ${paintValue_time}%, white 100%)`
-
-// exec to initial load
-
-document.onload = calcMonthPaid(time_slider.value);
-generarTabla(
-    table_body,
-    time_slider.value, //meses
-    _rentabilidad_total
-    );
-
-/** Slider Range Events */
-
-// Update the current capital_slider value (each time you drag the capital_slider handle)
-capital_slider.oninput = function() {
-    let _capital =this.value;
-
-    let valorIncremento = 1000; // step
-    let paintValue = (_capital / valorIncremento); 
-    let color = '#39b54a';
-
-    this.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue}%, #fff  ${paintValue}%, white 100%)`
-
-    inversion_output.innerHTML = capital_output.innerHTML = formatoSoles(_capital);
-    
-    titulo_tabla.innerHTML = tituloTabla(time_slider.value);
-    calcMonthPaid(time_slider.value)
-    month_paid.innerHTML = formatoSoles(interesMensual(time_slider.value,_capital,rentabilidad_percentage.textContent));
-    generarTabla(
-        table_body,
-        time_slider.value, //meses
-        _rentabilidad_total
-        );
-    // console.log(8);
+let capitalRange ={
+    valor_actual: 50000,
+    valor_max:100000,
+    valor_min:1000,
+    valor_formato: function(){
+        return new Intl.NumberFormat(
+            'es-PE', { 
+                style: 'currency', currency: 'PEN' 
+            }
+            ).format(this.valor_actual);
+        },    
+        color : '#39b54a',
+        porcentaje_pintado: function(){
+                return (this.valor_actual / this.valor_min);
+            }, 
+        pintar: function(){
+            return `linear-gradient(to right, ${this.color} 0%, ${this.color} ${this.porcentaje_pintado()}%, #fff  ${this.porcentaje_pintado()}%, white 100%)`
+        }    
 }
 
-// time calculation
-time_slider.oninput = function(){
-    let _time = this.value;
-    let paintValue = timePercentage(this.value); 
-    let color = '#39b54a';
-    this.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${paintValue}%, #fff  ${paintValue}%, white 100%)`
+let tiempoRange ={
+    valor_actual:18,
+    valor_max:24,
+    valor_min:6,
+    valor_formato: function(){
+        return this.valor_actual + " meses";
+    },
+    color : '#39b54a',
+    porcentaje_pintado: function(){
+            let _percentage = 65;
+            switch(this.valor_actual)
+            {
+                case "6":
+                    _percentage=1
+                break;
+                case "12":
+                    _percentage=35
+                break;
+                case "18":
+                    _percentage=65
+                break;
+                case "24":
+                    _percentage=100
+                break;
 
-    time_output.innerHTML = formatoMeses(_time);
+                default:
+                    _percentage=65
+                break;
+            }
+            return _percentage;
+        },
+
+    pintar: function(){
+            return `linear-gradient(to right, ${this.color} 0%, ${this.color} ${this.porcentaje_pintado()}%, #fff  ${this.porcentaje_pintado()}%, white 100%)`
+        }  
+}
+
+let simulacion = {
+
+    rentabilidad_total: function(){
+        let percentage = '42 %';
+        switch (tiempoRange.valor_actual) {
+            case "6":
+                percentage='12 %'
+                break;
+            case "12":
+                percentage='28 %'
+                break;
+            case "18":
+                percentage='42 %'    
+                break;
+            case "24":
+                percentage='60 %'
+                break;
+        
+            default:
+                break;
+        }
+        return percentage;
+    },
     
-    titulo_tabla.innerHTML = tituloTabla(time_slider.value);
-
-    calcMonthPaid(time_slider.value)
-    //tiempo, capital, rentabilidadTotal
-    month_paid.innerHTML = formatoSoles(interesMensual(_time,capital_slider.value,rentabilidad_percentage.textContent));
-    generarTabla(
-        table_body,
-        time_slider.value, //meses
-        _rentabilidad_total
-        )
+    porcentaje_mensual:function(){
+        textoPorcentajeTotal =  this.rentabilidad_total().substring(0,2)
+        let porcentaje = textoPorcentajeTotal/tiempoRange.valor_actual;
+        return porcentaje.toFixed(3);
+    },
+    pago_mensual: function(){
+        let pago_mensual =(this.porcentaje_mensual()*capitalRange.valor_actual)/100;
+        
+        return new Intl.NumberFormat(
+            'es-PE', { 
+                style: 'currency', currency: 'PEN' 
+            }
+            ).format(pago_mensual);
+    },
 
 }
 
-// Calc profit - calculos de rentabilidad 
+actualizarData();
 
-function calcMonthPaid(tiempo)
-{
-    
-    const rentabilidad = document.getElementById("rentabilidad_percentage");
-    let percentage = '12 %';
-    switch (tiempo) {
-        case "6":
-            percentage='12 %'
-            break;
-        case "12":
-            percentage='28 %'
-            break;
-        case "18":
-            percentage='42 %'    
-            break;
-        case "24":
-            percentage='60 %'
-            break;
-    
-        default:
-            break;
-    }
-    // month_paid_output.innerHTML = formatoSoles(pago);
-    rentabilidad.innerHTML = percentage;
-    
+capital_range.oninput = function() {
+   capitalRange.valor_actual =this.value;
+   actualizarData()
 }
 
-function interesMensual(tiempo, capital, rentabilidadTotal){
-    let _porcentaje = RentabilidadMensual(rentabilidadTotal,tiempo)
-    return (_porcentaje*capital)/100;
+capital_range_dos.oninput = function() {
+   capitalRange.valor_actual =this.value;
+
+   actualizarData()
+}
+
+time_range.oninput = function() {
+   tiempoRange.valor_actual =this.value;
+   actualizarData()
+}
+
+time_range_dos.oninput = function() {
+   tiempoRange.valor_actual =this.value;
+
+   actualizarData()
 }
 
 
-function generarTabla(table_body,nroMeses,_rentabilidad_total){
 
+function actualizarData(){
+
+    // capital 
+    document.getElementsByName('capital')[0].innerHTML = capitalRange.valor_formato();
+    document.getElementsByName('capital')[1].innerHTML = capitalRange.valor_formato();
+    
+    
+    document.getElementById('capital_range').value = capitalRange.valor_actual;
+    document.getElementById('capital_range_dos').value = capitalRange.valor_actual;
+    
+    // pintado de range capital 
+    document.getElementById('capital_range').style.background = capitalRange.pintar();
+    document.getElementById('capital_range_dos').style.background = capitalRange.pintar();
+    
+    //tiempo
+    
+    document.getElementsByName('time')[1].innerHTML = tiempoRange.valor_formato();
+    document.getElementsByName('time')[0].innerHTML = tiempoRange.valor_formato();
+    
+    document.getElementById('time_range').value = tiempoRange.valor_actual;
+    document.getElementById('time_range_dos').value = tiempoRange.valor_actual;
+
+    document.getElementById('time_range').style.background = tiempoRange.pintar();
+    document.getElementById('time_range_dos').style.background = tiempoRange.pintar();
+
+    //simulacion
+    document.getElementsByName("rentabilidad_percentage")[0].innerHTML = simulacion.rentabilidad_total();
+    document.getElementsByName("rentabilidad_percentage")[1].innerHTML = simulacion.rentabilidad_total();
+    
+    document.getElementsByName("month_paid")[0].innerHTML = simulacion.pago_mensual();
+    document.getElementsByName("month_paid")[1].innerHTML = simulacion.pago_mensual();
+    
+    document.getElementsByName("inversion_output")[0].innerHTML = capitalRange.valor_formato();
+    document.getElementsByName("inversion_output")[1].innerHTML = capitalRange.valor_formato();
+
+
+    //tabla
+    document.getElementById("titulo_tabla").innerHTML = tituloTabla(tiempoRange.valor_actual);
+
+    generarTabla("table_body",tiempoRange.valor_actual)
+
+}
+
+
+
+function generarTabla(table_bodyId,tiempo){
+
+    let body_table = document.getElementById(table_bodyId)
     // porcentaje
-    let percentage = RentabilidadMensual(_rentabilidad_total,nroMeses);
+    let percentage = simulacion.porcentaje_mensual();
 
     // pago mensual 
-    const month_paid = document.getElementById("month_paid");
-    let pago_mensual_interes = month_paid.textContent;
+    let pago_mensual_interes = simulacion.pago_mensual();
 
     // tiempo de inversion
-    let fechas_pagos = FechasPago(nroMeses);
+    let fechas_pagos = FechasPago(tiempo);
 
     // generando la tabla
-    table_body.innerHTML="";
-    for (let i = 0; i < nroMeses; i++) {
+    body_table.innerHTML="";
+    for (let i = 0; i < tiempo; i++) {
         let mes = i+1;
         let fila = document.createElement("tr");
         fila.appendChild(crearCell(mes))
         fila.appendChild(crearCell(percentage))
         fila.appendChild(crearCell(pago_mensual_interes))
         fila.appendChild(crearCell(fechas_pagos[i]))
-
-        table_body.appendChild(fila);
+        body_table.appendChild(fila);
     }
     // resultados 
-    return table_body;
-}  
+    return body_table;
+}
 
 function tituloTabla(nroMeses){
-    return 'Por '+ formatoMeses(nroMeses) ;
+    return `Por ${nroMeses} meses` ;
 }
 
-// percentage to time range
-function timePercentage(time)
-    {
-        let _percentage = 1;
-        switch(time)
-        {
-            case "6":
-                _percentage=1
-            break;
-            case "12":
-                _percentage=35
-            break;
-            case "18":
-                _percentage=65
-            break;
-            case "24":
-                _percentage=100
-            break;
-
-            default:
-                _percentage=1
-            break;
-        }
-        return _percentage;
-
-    }
-
-
-//convert to PEN
-function formatoSoles(monto){
-    return new Intl.NumberFormat(
-         'es-PE', { 
-             style: 'currency', currency: 'PEN' 
-            }
-        ).format(monto);
-}
-
-// foramt to months
-function formatoMeses(tiempo){
-    return tiempo + " meses";
+function crearCell( val){
+    let cell = document.createElement("td");
+    let textoCelda = document.createTextNode(val)
+    cell.appendChild(textoCelda)
+    return cell
 }
 
 function FechasPago(tiempo)
@@ -247,21 +253,4 @@ function FechasPago(tiempo)
        
     }
     return data;
-}
-
-function RentabilidadMensual(textoPorcentajeTotal,tiempo){
-    textoPorcentajeTotal =  textoPorcentajeTotal.substring(0,2)
-    let porcentaje = textoPorcentajeTotal/tiempo;
-
-    return porcentaje.toFixed(3); // 3 decimales
-
-    
-}
-    
-
-function crearCell( val){
-    let cell = document.createElement("td");
-    let textoCelda = document.createTextNode(val)
-    cell.appendChild(textoCelda)
-    return cell
 }

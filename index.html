@@ -128,7 +128,7 @@
                             <div class="subhead form_title text-center">Calcula tu ganancia</div>
                             <!-- <h2 class="form_title text-center">Calcula tu ganancia</h2> -->
                             <legend class="form_question text-center">¿Cuánto quieres invertir?</legend>
-                            <legend id="capital" class="form_range-value text-center">5,000 </legend>
+                            <legend name="capital" class="form_range-value text-center">50,000 </legend>
                             <div class="form-group">
                                 <div class="slidecontainer">
 
@@ -139,7 +139,7 @@
                             </div>
                             <legend class="form_question text-center">¿Por cuánto tiempo?</legend>
                             
-                            <legend id="time" class="form_range-value text-center">12 meses</legend>
+                            <legend name="time" class="form_range-value text-center">12 meses</legend>
                             <div class="form-group">
                                 <div class="slidecontainer">
                                     <input type="range" min="6" max="24" step="6"  class="slider" id="time_range">
@@ -153,7 +153,7 @@
                                 <hr class="simulation-line">
                                 <div class="form_results">
                                     <span class="float-left">Monto de inversión:</span>
-                                    <span id="inversion_output" class="float-right"> 
+                                    <span name="inversion_output" class="float-right"> 
                                         S/ 51,000.00
                                     </span> 
 
@@ -161,14 +161,14 @@
                                 <hr class="simulation-line">
                                 <div class="form_results">
                                     <span class="float-left"> Tu pago mensual:</span>
-                                    <span id="month_paid" class="float-right">
+                                    <span name="month_paid" class="float-right">
                                         S/ 1188.30
                                     </span>
                                 </div>
                                 <hr class="simulation-line">
                                 <div class="form_results">
                                     <span class="float-left"> Rentabilidad total:</span>
-                                    <span id="rentabilidad_percentage" class="form_results_rentabilidad float-right">
+                                    <span name="rentabilidad_percentage" class="form_results_rentabilidad float-right">
                                         12 %
                                     </span>
                                 </div>
@@ -578,21 +578,21 @@ beneficios.
                         <div class="subhead form_title text-center">Calcula tu ganancia</div>
                         <!-- <h2 class="form_title text-center">Calcula tu ganancia</h2> -->
                         <legend class="form_question text-center">¿Cuánto quieres invertir?</legend>
-                        <legend id="capital" class="form_range-value text-center">5,000 </legend>
+                        <legend name="capital" class="form_range-value text-center">5,000 </legend>
                         <div class="form-group">
                             <div class="slidecontainer">
 
-                                <input type="range" min="1000" max="100000" step="1000" class="slider" id="capital_range2">
+                                <input type="range" min="1000" max="100000" step="1000" class="slider" id="capital_range_dos">
                                 <span class="form_range-min-max float-left">1,000</span>
                                 <span class="form_range-min-max float-right">100,000</span>
                             </div>
                         </div>
                         <legend class="form_question text-center">¿Por cuánto tiempo?</legend>
                         
-                        <legend id="time" class="form_range-value text-center">12 meses</legend>
+                        <legend name="time" class="form_range-value text-center">12 meses</legend>
                         <div class="form-group">
                             <div class="slidecontainer">
-                                <input type="range" min="6" max="24" step="6"  class="slider" id="time_range">
+                                <input type="range" min="6" max="24" step="6"  class="slider" id="time_range_dos">
                                 <span class="form_range-min-max float-left">6 meses</span>
                                 <span class="form_range-min-max float-right">24 meses</span>
                             </div>
@@ -603,7 +603,7 @@ beneficios.
                             <hr class="simulation-line">
                             <div class="form_results">
                                 <span class="float-left">Monto de inversión:</span>
-                                <span id="inversion_output" class="float-right"> 
+                                <span name="inversion_output" class="float-right"> 
                                     S/ 51,000.00
                                 </span> 
 
@@ -611,14 +611,14 @@ beneficios.
                             <hr class="simulation-line">
                             <div class="form_results">
                                 <span class="float-left"> Tu pago mensual:</span>
-                                <span id="month_paid" class="float-right">
+                                <span name="month_paid" class="float-right">
                                     S/ 1188.30
                                 </span>
                             </div>
                             <hr class="simulation-line">
                             <div class="form_results">
                                 <span class="float-left"> Rentabilidad total:</span>
-                                <span id="rentabilidad_percentage" class="form_results_rentabilidad float-right">
+                                <span name="rentabilidad_percentage" class="form_results_rentabilidad float-right">
                                     12 %
                                 </span>
                             </div>
@@ -995,13 +995,12 @@ Calle Jose Bazzochi 337 Int. 2, La Victoria. RUC 20603616261</span>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/simulation-functions.js"></script>
     <script src="js/simulation.js"></script>
 
 
     <script>
 
-    
-    
     </script>
 </body>
 
