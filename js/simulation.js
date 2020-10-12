@@ -94,6 +94,16 @@ let simulacion = {
             }
             ).format(pago_mensual);
     },
+    total_intereses: function(){
+        let pago_mensual =(this.porcentaje_mensual()*capitalRange.valor_actual)/100;
+        let total = pago_mensual * tiempoRange.valor_actual;
+        return new Intl.NumberFormat(
+            'es-PE', { 
+                style: 'currency', currency: 'PEN' 
+            }
+            ).format(total);
+
+    }
 
 }
 
@@ -139,8 +149,9 @@ function actualizarData(){
     
     //tiempo
     
-    document.getElementsByName('time')[1].innerHTML = tiempoRange.valor_formato();
     document.getElementsByName('time')[0].innerHTML = tiempoRange.valor_formato();
+    document.getElementsByName('time')[1].innerHTML = tiempoRange.valor_formato();
+    document.getElementsByName('time')[2].innerHTML = tiempoRange.valor_formato();
     
     document.getElementById('time_range').value = tiempoRange.valor_actual;
     document.getElementById('time_range_dos').value = tiempoRange.valor_actual;
@@ -153,14 +164,16 @@ function actualizarData(){
     document.getElementsByName("rentabilidad_percentage")[1].innerHTML = simulacion.rentabilidad_total();
     
     document.getElementsByName("month_paid")[0].innerHTML = simulacion.pago_mensual();
-    document.getElementsByName("month_paid")[1].innerHTML = simulacion.pago_mensual();
+    
+    document.getElementsByName("mes_percentage")[0].innerHTML = simulacion.porcentaje_mensual() +' %';
+    document.getElementsByName("interes_total")[0].innerHTML = simulacion.total_intereses();
     
     document.getElementsByName("inversion_output")[0].innerHTML = capitalRange.valor_formato();
     document.getElementsByName("inversion_output")[1].innerHTML = capitalRange.valor_formato();
 
 
     //tabla
-    document.getElementById("titulo_tabla").innerHTML = tituloTabla(tiempoRange.valor_actual);
+// document.getElementById("titulo_tabla").innerHTML = tituloTabla(tiempoRange.valor_actual);
 
     generarTabla("table_body",tiempoRange.valor_actual)
 
@@ -186,7 +199,7 @@ function generarTabla(table_bodyId,tiempo){
         let mes = i+1;
         let fila = document.createElement("tr");
         fila.appendChild(crearCell(mes))
-        fila.appendChild(crearCell(percentage))
+        // fila.appendChild(crearCell(percentage))
         fila.appendChild(crearCell(pago_mensual_interes))
         fila.appendChild(crearCell(fechas_pagos[i]))
         body_table.appendChild(fila);
@@ -195,9 +208,7 @@ function generarTabla(table_bodyId,tiempo){
     return body_table;
 }
 
-function tituloTabla(nroMeses){
-    return `Por ${nroMeses} meses` ;
-}
+
 
 function crearCell( val){
     let cell = document.createElement("td");

@@ -127,6 +127,17 @@
 {
     color: #39b54a;
 }
+/* tabla encabezado */
+
+.celda-label{
+  padding: 5px;
+  text-align: left;
+  width: 50%;
+  background-color: #d4d4d4;
+  color: #000000;
+  font-family: "montserrat";
+  font-weight: 600;
+}
 
 /* tabla de detalle - cronograma */
 .table-responsive
