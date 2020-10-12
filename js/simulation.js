@@ -131,6 +131,13 @@ time_range_dos.oninput = function() {
    actualizarData()
 }
 
+btn_calcular.onclick = function(){
+    // alert("jeee")
+    url =`https://api.whatsapp.com/send?phone=51924617931&text=Hola!%20quiero%20invertir%20${capitalRange.valor_formato()}%20por%20${tiempoRange.valor_formato()},%20mi%20nombre%20es`;
+    window.open(url);
+
+}
+
 
 
 function actualizarData(){
@@ -265,3 +272,5 @@ function FechasPago(tiempo)
     }
     return data;
 }
+
+
