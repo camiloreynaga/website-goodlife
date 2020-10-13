@@ -1,6 +1,6 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/festival/public_html/goodlife.pe/website-new
+    - export DEPLOYPATH=/home/festival/public_html/goodlife.pe
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp favicon.ico $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
