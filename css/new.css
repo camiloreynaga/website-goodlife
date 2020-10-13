@@ -120,6 +120,10 @@
     
 
 }
+
+.form_results_2{
+  color:#000;
+}
 .form_results > span{
     padding: 5px 0;
 }
@@ -148,6 +152,9 @@ thead th {
     position: -webkit-sticky; /* for Safari */
     position: sticky;
     top: 0;
+  }
+  tbody{
+    color: #000;
   }
   tbody th {
     position: -webkit-sticky; /* for Safari */
