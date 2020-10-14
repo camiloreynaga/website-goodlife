@@ -253,7 +253,7 @@
             arrows: true,
             dots: false,
             infinite: true,
-            slidesToShow: 1,
+            slidesToShow: 3,
             slidesToScroll: 1,
             adaptiveHeight: true,
             pauseOnFocus: false,
