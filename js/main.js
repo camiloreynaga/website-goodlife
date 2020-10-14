@@ -255,6 +255,7 @@
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
+            autoplay: false,
             adaptiveHeight: true,
             pauseOnFocus: false,
             autoplaySpeed: 1500,
