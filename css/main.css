@@ -3080,7 +3080,7 @@ html.no-csstransitions .home-content__main {
         margin: 0 12%;
     }
     .clients-testimonials .testimonials p {
-        font-size: 2.6rem;
+        font-size: 1em;
     }
     .clients-testimonials .testimonials .slick-prev {
         left: -100px;
@@ -3092,7 +3092,7 @@ html.no-csstransitions .home-content__main {
 
 @media only screen and (max-width: 1000px) {
     .clients-testimonials .testimonials p {
-        font-size: 2.2rem;
+        font-size: 1em;
     }
 }
 
