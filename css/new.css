@@ -191,3 +191,15 @@ thead th:first-child {
   tr:nth-child(even) 
   td { background: #f0eded; }
 
+/* proceso de inversion */
+.s-proceso{
+  padding-top: 1em;
+  background-color: #39b54a;
+}
+.proceso-card{
+  /* background: #000000; */
+
+}
+.proceso-card > p{
+  color: #000;
+}
