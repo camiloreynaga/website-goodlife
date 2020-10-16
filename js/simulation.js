@@ -1,7 +1,7 @@
 
 let capitalRange ={
-    valor_actual: 50000,
-    valor_max:100000,
+    valor_actual:5000,
+    valor_max:50000,
     valor_min:1000,
     valor_formato: function(){
         return new Intl.NumberFormat(
@@ -12,7 +12,7 @@ let capitalRange ={
         },    
         color : '#39b54a',
         porcentaje_pintado: function(){
-                return (this.valor_actual / this.valor_min);
+                return (this.valor_actual*2 / this.valor_min);
             }, 
         pintar: function(){
             return `linear-gradient(to right, ${this.color} 0%, ${this.color} ${this.porcentaje_pintado()}%, #fff  ${this.porcentaje_pintado()}%, white 100%)`
@@ -20,7 +20,7 @@ let capitalRange ={
 }
 
 let tiempoRange ={
-    valor_actual:18,
+    valor_actual:"12",
     valor_max:24,
     valor_min:6,
     valor_formato: function(){
@@ -42,10 +42,6 @@ let tiempoRange ={
                 break;
                 case "24":
                     _percentage=100
-                break;
-
-                default:
-                    _percentage=65
                 break;
             }
             return _percentage;

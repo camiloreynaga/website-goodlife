@@ -44,7 +44,7 @@
     transition: opacity .2s;
     margin-bottom: 0;
 
-    background: linear-gradient(to right, #39b54a 0%, #39b54a 50%, #fff 50%, #fff 100%);
+    /* background: linear-gradient(to right, #39b54a 0%, #39b54a 50%, #fff 50%, #fff 100%); */
   }
   
   .slider:hover {
