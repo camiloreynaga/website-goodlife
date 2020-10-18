@@ -193,15 +193,34 @@ thead th:first-child {
 
 /* proceso de inversion */
 .s-proceso{
-  /* padding-top: 4em; */
-  min-height: 400px;
-  background-color: #757575;
+  background-color: #e6e6e6;
+  min-height: 800px;
+  position: relative;
 }
-.proceso-card{
-  min-height: 360px;
-  background: #00000057;
+.process_intro-wrap{
+  padding: 15rem 0 22em;
+  background: #111111
+}
+.process-content{
+  margin-top: -11em;
+}
 
-}
 .proceso-card > p{
   color: #000;
+}
+.list-card{
+  /* margin-top: -20px;
+  background-color: green;
+  width: 100%;
+  height: auto; */
+}
+.card{
+    min-height: 24em;
+    background: white;
+    width: 90%;
+    padding: 1px 5%;
+    margin: 20px auto;
+}
+.card img{
+  margin-top: 2em;
 }

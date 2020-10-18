@@ -408,173 +408,183 @@ beneficios.
 	
 	  <!-- pricing
     ================================================== -->
-    <section id="pricing">
-        <div class="row pricing-content">
+    <section id="pricing" class="s-proceso">
 
-            <div class="col-four pricing-intro">
-                <h1 class="display-2 display-2--light" data-aos="fade-up">Planes de inversión</h1>
-                <p data-aos="fade-up">Determina por cuánto tiempo invertirás con nosotros y asegura la rentabilidad que
-                    más se adapte a tus necesidades desde el comienzo.  <br>
-                </p>
+        <div class="process_intro-wrap" >
+            <div class="row pricing-content">
 
-                <div class="simulation">
-                    <form action="" method="post">
-                        <div class="subhead form_title text-center">Calcula tu ganancia</div>
-                        <!-- <h2 class="form_title text-center">Calcula tu ganancia</h2> -->
-                        <legend class="form_question text-center">¿Cuánto quieres invertir?</legend>
-                        <legend name="capital" class="form_range-value text-center">5,000 </legend>
-                        <div class="form-group">
-                            <div class="slidecontainer">
+                <div class="col-four pricing-intro">
+                    <h1 class="display-2 display-2--light" data-aos="fade-up">Planes de inversión</h1>
+                    <p data-aos="fade-up">Determina por cuánto tiempo invertirás con nosotros y asegura la rentabilidad que
+                        más se adapte a tus necesidades desde el comienzo.  <br>
+                    </p>
 
-                                <input type="range" min="1000" max="50000" step="1000" class="slider" id="capital_range_dos">
-                                <span class="form_range-min-max float-left">1,000</span>
-                                <span class="form_range-min-max float-right">50,000</span>
+                    <div class="simulation">
+                        <form action="" method="post">
+                            <div class="subhead form_title text-center">Calcula tu ganancia</div>
+                            <!-- <h2 class="form_title text-center">Calcula tu ganancia</h2> -->
+                            <legend class="form_question text-center">¿Cuánto quieres invertir?</legend>
+                            <legend name="capital" class="form_range-value text-center">5,000 </legend>
+                            <div class="form-group">
+                                <div class="slidecontainer">
+
+                                    <input type="range" min="1000" max="50000" step="1000" class="slider" id="capital_range_dos">
+                                    <span class="form_range-min-max float-left">1,000</span>
+                                    <span class="form_range-min-max float-right">50,000</span>
+                                </div>
                             </div>
-                        </div>
-                        <legend class="form_question text-center">¿Por cuánto tiempo?</legend>
-                        
-                        <legend name="time" class="form_range-value text-center">12 meses</legend>
-                        <div class="form-group">
-                            <div class="slidecontainer">
-                                <input type="range" min="6" max="24" step="6"  class="slider" id="time_range_dos">
-                                <span class="form_range-min-max float-left">6 meses</span>
-                                <span class="form_range-min-max float-right">24 meses</span>
+                            <legend class="form_question text-center">¿Por cuánto tiempo?</legend>
+                            
+                            <legend name="time" class="form_range-value text-center">12 meses</legend>
+                            <div class="form-group">
+                                <div class="slidecontainer">
+                                    <input type="range" min="6" max="24" step="6"  class="slider" id="time_range_dos">
+                                    <span class="form_range-min-max float-left">6 meses</span>
+                                    <span class="form_range-min-max float-right">24 meses</span>
+                                </div>
                             </div>
-                        </div>
+                            
                         
-                       
-                           
-                        
-                        <!-- btn ver detalles -->
-                        <div class="clear-fix"></div>
-                        <br>
-                        <div class="form-group text-center ">
-
                             
                             
-                            <a id="btn_invertir" class="btn btn--primary smoothscroll" 
-                            href="">Empezar a invertir</a>
-                        </div>
-                    </form>
+                            <!-- btn ver detalles -->
+                            <div class="clear-fix"></div>
+                            <br>
+                            <div class="form-group text-center ">
+
+                                
+                                
+                                <a id="btn_invertir" class="btn btn--primary smoothscroll" 
+                                href="">Empezar a invertir</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-eight pricing-table">
+                    <div class="row">
+
+                        <div class="col-twelve plan-wrap">
+                            <div class="plan-block" data-aos="fade-up"> 
+                                
+                                
+                                <hr class="simulation-line">
+                                <div class="form_results_2">
+                                    <span class="celda-label float-left">Inversión</span>
+                                    <span name="inversion_output" class="float-right"> 
+                                        S/ 51,000.00
+                                    </span> 
+                                    
+                                </div>
+                                <hr class="simulation-line">
+                                <div class="form_results_2">
+                                    <span class="celda-label float-left">Tiempo/ Plazo</span>
+                                    <span name="time" class="float-right"> 
+                                        S/ 51,000.00
+                                    </span> 
+                                </div>
+
+                                <hr class="simulation-line">
+                                <div class="form_results_2">
+                                    <span class="celda-label float-left"> Interés mensual %</span>
+                                    <span name="mes_percentage" class=" float-right">
+                                        12 %
+                                    </span>
+                                </div>
+                                
+                                <hr class="simulation-line">
+                                <div class="form_results_2">
+                                    <span class="celda-label float-left"> Interés total %</span>
+                                    <span name="rentabilidad_percentage" class=" float-right">
+                                        12 %
+                                    </span>
+                                </div>
+
+                                <hr class="simulation-line">
+                                <div class="form_results_2">
+                                    <span class="celda-label float-left"> Interés total</span>
+                                    <span name="interes_total" class="float-right">
+                                        S/ 1188.30
+                                    </span>
+                                </div>
+                                <hr class="simulation-line">
+                                
+                            <!-- </div> -->
+                        
+                            
+                            <!-- btn ver detalles -->
+                            <div class="clear-fix"></div>
+            
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Mes</th>
+                                        <!-- <th>%</th> -->
+                                        <th>Interes</th>
+                                        <th>fecha Pago</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="table_body">
+                                    </tbody>
+                                </table>
+            
+                            </div> 
+                        
+                            </div>
+                        </div> 
+
+                    </div>               
+                
+                    
+                </div> <!-- end pricing-table -->
+
+            </div> <!-- end pricing-content -->
+        </div>
+
+        <div class="row  block-1-3 block-tab-full process-content" data-aos="fade-up">
+
+            <div class="list-card">
+
+            
+
+                <div class="col-block text-center ">
+                    <div class="card">
+
+                        
+                        <img class="rounded mx-auto d-block" src="images/svg/inversion-icon_bg-green.svg" alt="inversion-image" >
+                        <h3 class="process_step-title text-center">Fija el monto a invertir</h3>
+                        <!-- <p></p> -->
+                        <p class="process_step-text">Luego de confirmar tu inversión, nos contácteremos contigo para iniciar el proceso.</p>
+                    </div>
+                </div>
+
+                
+
+                <div class="col-block text-center ">
+                    <div class="card">
+
+                        <img class="rounded mx-auto d-block" src="images/svg/contrato-icon_bg-green.svg" alt="contrato-icon_bg-greeno" >
+                        <h3 class="process_step-title text-center">Revisa el contrato</h3>
+                        <!-- <p></p> -->
+                        <p class="process_step-text">Te haremos llegar el contrato, por favor revisalo e indicanos si tienes dudas.</p>
+                    </div>
+                </div>
+                <div class="col-block text-center ">
+                    <div class="card">
+
+                        <img class="rounded mx-auto d-block" src="images/svg/handshake-icon_bg-green.svg" alt="cerrar-trato-icono" >
+                        <h3 class="process_step-title text-center">Firma ante un notario</h3>
+                        <!-- <p></p> -->
+                        <p class="process_step-text">Cerremos el trato en una notaria.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-eight pricing-table">
-                <div class="row">
-
-                    <div class="col-twelve plan-wrap">
-                        <div class="plan-block" data-aos="fade-up"> 
-                            
-                            
-                            <hr class="simulation-line">
-                            <div class="form_results_2">
-                                <span class="celda-label float-left">Inversión</span>
-                                <span name="inversion_output" class="float-right"> 
-                                    S/ 51,000.00
-                                </span> 
-                                
-                            </div>
-                            <hr class="simulation-line">
-                            <div class="form_results_2">
-                                <span class="celda-label float-left">Tiempo/ Plazo</span>
-                                <span name="time" class="float-right"> 
-                                    S/ 51,000.00
-                                </span> 
-                            </div>
-
-                            <hr class="simulation-line">
-                            <div class="form_results_2">
-                                <span class="celda-label float-left"> Interés mensual %</span>
-                                <span name="mes_percentage" class=" float-right">
-                                    12 %
-                                </span>
-                            </div>
-                            
-                            <hr class="simulation-line">
-                            <div class="form_results_2">
-                                <span class="celda-label float-left"> Interés total %</span>
-                                <span name="rentabilidad_percentage" class=" float-right">
-                                    12 %
-                                </span>
-                            </div>
-
-                            <hr class="simulation-line">
-                            <div class="form_results_2">
-                                <span class="celda-label float-left"> Interés total</span>
-                                <span name="interes_total" class="float-right">
-                                    S/ 1188.30
-                                </span>
-                            </div>
-                            <hr class="simulation-line">
-                            
-                        <!-- </div> -->
-                      
-                        
-                        <!-- btn ver detalles -->
-                        <div class="clear-fix"></div>
-        
-                        <div class="table-responsive">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Mes</th>
-                                    <!-- <th>%</th> -->
-                                    <th>Interes</th>
-                                    <th>fecha Pago</th>
-                                </tr>
-                                </thead>
-                                <tbody id="table_body">
-                                </tbody>
-                            </table>
-        
-                        </div> 
-                     
-                        </div>
-                    </div> 
-
-                </div>               
-            
-                
-            </div> <!-- end pricing-table -->
-
-        </div> <!-- end pricing-content -->
+        </div>
     </section> <!-- end pricing -->
 
-    <!-- clients
-    ================================================== -->
-    <section id="steps" class="s-proceso">
-        
-        <div class="row  block-1-3 block-tab-full" data-aos="fade-up">
-
-            
-
-            <div class="col-block text-center proceso-card">
-
-                <h3 class="process_step-title text-center">Fija el monto a invertir</h3>
-                <img class="rounded mx-auto d-block" src="images/svg/inversion-icon_bg-green.svg" alt="inversion-image" >
-                <p class="process_step-text">Luego de confirmar tu inversión, nos contácteremos contigo para iniciar el proceso.</p>
-            </div>
-
-            
-
-            <div class="col-block text-center proceso-card">
-                <h3 class="process_step-title text-center">Revisa el contrato</h3>
-                <img class="rounded mx-auto d-block" src="images/svg/contrato-icon_bg-green.svg" alt="contrato-icon_bg-greeno" >
-                <p class="process_step-text">Te haremos llegar el contrato, por favor revisalo e indicanos si tienes dudas.</p>
-            </div>
-            <div class="col-block text-center proceso-card">
-                <h3 class="process_step-title text-center">Firma ante un notario</h3>
-                <img class="rounded mx-auto d-block" src="images/svg/handshake-icon_bg-green.svg" alt="cerrar-trato-icono" >
-                <p class="process_step-text">Cerremos el trato en una notaria.</p>
-            </div>
-        </div>
-
-        
-    </section>
-
-
-	
-	
+   
 	
 	
     <!-- clients

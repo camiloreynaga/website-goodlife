@@ -1039,9 +1039,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * ------------------------------------------------------------------- */
 
 #pricing {
-  background: #000000;
-  padding-top: 15rem;
-  padding-bottom: 12rem;
+  /* background: #000000; */
+  /* padding-top: 15rem; */
+  /* padding-bottom: 12rem; */
 }
 
 #pricing h1 {
