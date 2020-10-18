@@ -208,19 +208,32 @@ thead th:first-child {
 .proceso-card > p{
   color: #000;
 }
+
 .list-card{
   /* margin-top: -20px;
   background-color: green;
   width: 100%;
   height: auto; */
 }
+.process_step-title{
+  margin-top: 4rem;
+}
 .card{
-    min-height: 24em;
+    min-height: 20em;
     background: white;
     width: 90%;
     padding: 1px 5%;
     margin: 20px auto;
 }
+
+.card:hover{
+  background: #eafaf1;
+  
+  /* background: #adadad; */
+  /* color: #fff; */
+}
+
 .card img{
   margin-top: 2em;
+  width: 5em;
 }
