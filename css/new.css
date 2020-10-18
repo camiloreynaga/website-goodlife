@@ -193,11 +193,13 @@ thead th:first-child {
 
 /* proceso de inversion */
 .s-proceso{
-  padding-top: 4em;
-  background-color: #39b54a;
+  /* padding-top: 4em; */
+  min-height: 400px;
+  background-color: #757575;
 }
 .proceso-card{
-  /* background: #000000; */
+  min-height: 360px;
+  background: #00000057;
 
 }
 .proceso-card > p{
